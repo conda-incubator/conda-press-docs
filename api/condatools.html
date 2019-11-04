@@ -1,0 +1,361 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Conda Tools (conda_press.condatools) &#8212; conda-press 0.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/numpy_friendly.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/press.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wheel (conda_press.wheel)" href="wheel.html" />
+    <link rel="prev" title="Conda-Press API" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="wheel.html" title="Wheel (conda_press.wheel)"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Conda-Press API"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Conda-Press API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-conda_press.condatools">
+<span id="conda-tools-conda-press-condatools"></span><span id="conda-press-condatools"></span><h1>Conda Tools (<code class="docutils literal notranslate"><span class="pre">conda_press.condatools</span></code>)<a class="headerlink" href="#module-conda_press.condatools" title="Permalink to this headline">¶</a></h1>
+<p>Some tools for converting conda packages to wheels</p>
+<dl class="class">
+<dt id="conda_press.condatools.ArtifactInfo">
+<em class="property">class </em><code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">ArtifactInfo</code><span class="sig-paren">(</span><em class="sig-param">artifactdir</em>, <em class="sig-param">config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ArtifactInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Representation of artifact info/ directory.</p>
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.clean">
+<code class="sig-name descname">clean</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.clean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.from_tarball">
+<em class="property">classmethod </em><code class="sig-name descname">from_tarball</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">config=None</em>, <em class="sig-param">replace_symlinks=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.from_tarball" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.replace_symlinks">
+<code class="sig-name descname">replace_symlinks</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">strip_symbols=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.replace_symlinks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.strip_symbols">
+<code class="sig-name descname">strip_symbols</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.strip_symbols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strips symbols out of binary files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.abi_tag">
+<em class="property">property </em><code class="sig-name descname">abi_tag</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.abi_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.artifactdir">
+<em class="property">property </em><code class="sig-name descname">artifactdir</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.artifactdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.config">
+<em class="property">property </em><code class="sig-name descname">config</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.entry_points">
+<em class="property">property </em><code class="sig-name descname">entry_points</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.entry_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.noarch">
+<em class="property">property </em><code class="sig-name descname">noarch</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.noarch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.platform_tag">
+<em class="property">property </em><code class="sig-name descname">platform_tag</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.platform_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.python_tag">
+<em class="property">property </em><code class="sig-name descname">python_tag</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.python_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.run_requirements">
+<em class="property">property </em><code class="sig-name descname">run_requirements</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.run_requirements" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.condatools.ArtifactInfo.subdir">
+<em class="property">property </em><code class="sig-name descname">subdir</code><a class="headerlink" href="#conda_press.condatools.ArtifactInfo.subdir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.all_deps">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">all_deps</code><span class="sig-paren">(</span><em class="sig-param">package_rec</em>, <em class="sig-param">names_recs</em>, <em class="sig-param">seen=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.all_deps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the set of all dependency names for a package.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.artifact_ref_dependency_tree_to_wheels">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">artifact_ref_dependency_tree_to_wheels</code><span class="sig-paren">(</span><em class="sig-param">artifact_ref</em>, <em class="sig-param">config=None</em>, <em class="sig-param">seen=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.artifact_ref_dependency_tree_to_wheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts all artifact dependencies to wheels for a ref spec string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.artifact_to_wheel">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">artifact_to_wheel</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">config=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.artifact_to_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts an artifact to a wheel. The clean option will remove
+the temporary artifact directory before returning.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.download_artifact">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">download_artifact</code><span class="sig-paren">(</span><em class="sig-param">artifact_ref_or_rec</em>, <em class="sig-param">channels=None</em>, <em class="sig-param">subdir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.download_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads an artifact from a ref spec or a PackageRecord.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.download_artifact_ref">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">download_artifact_ref</code><span class="sig-paren">(</span><em class="sig-param">artifact_ref</em>, <em class="sig-param">channels=None</em>, <em class="sig-param">subdir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.download_artifact_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches for an artifact on a variety of channels. If subdir is not
+given, only “noarch” is used. Noarch is searched after the given subdit.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.download_package_rec">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">download_package_rec</code><span class="sig-paren">(</span><em class="sig-param">pkg_record</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.download_package_rec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads a package record, returning the local filename.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.find_link_target">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">find_link_target</code><span class="sig-paren">(</span><em class="sig-param">source</em>, <em class="sig-param">info=None</em>, <em class="sig-param">channels=None</em>, <em class="sig-param">deps_cache=None</em>, <em class="sig-param">relative_source=None</em>, <em class="sig-param">strip_symbols=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.find_link_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.get_only_deps_on_pypi">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">get_only_deps_on_pypi</code><span class="sig-paren">(</span><em class="sig-param">list_deps</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.get_only_deps_on_pypi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on a set of dependencies this function will check if those
+dependencies are on PyPi, if it is not available it will be removed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>set</dt><dd><p>List of packages present on PyPi</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>list_deps: set of `str`</strong></dt><dd><p>List of dependencies as a string values</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.index_json_exists">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">index_json_exists</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.index_json_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.is_elf">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">is_elf</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.is_elf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not a file is an ELF binary file.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.is_shared_lib">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">is_shared_lib</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.is_shared_lib" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.major_minor">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">major_minor</code><span class="sig-paren">(</span><em class="sig-param">ver</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.major_minor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.meta_yaml_exists">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">meta_yaml_exists</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.meta_yaml_exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.name_from_ref">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">name_from_ref</code><span class="sig-paren">(</span><em class="sig-param">ref</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.name_from_ref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an artifact name from a ref spec string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.package_spec_from_filename">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">package_spec_from_filename</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.package_spec_from_filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.package_spec_from_index_json">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">package_spec_from_index_json</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.package_spec_from_index_json" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.package_spec_from_meta_yaml">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">package_spec_from_meta_yaml</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.package_spec_from_meta_yaml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.package_to_wheel">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">package_to_wheel</code><span class="sig-paren">(</span><em class="sig-param">ref_or_rec</em>, <em class="sig-param">config=None</em>, <em class="sig-param">_top=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.package_to_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a package ref spec or a PackageRecord into a wheel.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.ref_name">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">ref_name</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">ver_build=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.ref_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.root_ext">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">root_ext</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.root_ext" title="Permalink to this definition">¶</a></dt>
+<dd><p>gets the extention of the root directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.valid_package_name">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">valid_package_name</code><span class="sig-paren">(</span><em class="sig-param">info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.valid_package_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.condatools.wheel_safe_build">
+<code class="sig-prename descclassname">conda_press.condatools.</code><code class="sig-name descname">wheel_safe_build</code><span class="sig-paren">(</span><em class="sig-param">build</em>, <em class="sig-param">build_string=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.condatools.wheel_safe_build" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/press.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="index.html"
+                          title="Previous page">&larr; Conda-Press API</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="wheel.html"
+                          title="Next page">&rarr; Wheel (<code class="docutils literal notranslate"><span class="pre">conda_press.wheel</span></code>)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/condatools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="wheel.html" title="Wheel (conda_press.wheel)"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Conda-Press API"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Conda-Press API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Anthony Scopatz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

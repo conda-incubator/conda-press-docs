@@ -1,0 +1,423 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wheel (conda_press.wheel) &#8212; conda-press 0.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/numpy_friendly.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/press.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Main Entry Points (conda_press.main)" href="main.html" />
+    <link rel="prev" title="Conda Tools (conda_press.condatools)" href="condatools.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main.html" title="Main Entry Points (conda_press.main)"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="condatools.html" title="Conda Tools (conda_press.condatools)"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Conda-Press API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-conda_press.wheel">
+<span id="wheel-conda-press-wheel"></span><span id="conda-press-wheel"></span><h1>Wheel (<code class="docutils literal notranslate"><span class="pre">conda_press.wheel</span></code>)<a class="headerlink" href="#module-conda_press.wheel" title="Permalink to this headline">¶</a></h1>
+<p>Tools for representing wheels in-memory</p>
+<dl class="class">
+<dt id="conda_press.wheel.Wheel">
+<em class="property">class </em><code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">Wheel</code><span class="sig-paren">(</span><em class="sig-param">distribution</em>, <em class="sig-param">version</em>, <em class="sig-param">build_tag=None</em>, <em class="sig-param">python_tag='py2.py3'</em>, <em class="sig-param">abi_tag='none'</em>, <em class="sig-param">platform_tag='any'</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wheel representation that knows how to write itself out.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>distribution</strong><span class="classifier">str</span></dt><dd><p>The ‘distribution name’, or the package name, e.g. “numpy”</p>
+</dd>
+<dt><strong>version</strong><span class="classifier">str</span></dt><dd><p>The version string for the package</p>
+</dd>
+<dt><strong>build_tag</strong><span class="classifier">str or int, optional</span></dt><dd><p>The build number, must start with a digit, See PEP #427</p>
+</dd>
+<dt><strong>python_tag</strong><span class="classifier">str, optional</span></dt><dd><p>The Python version tag, see PEP #425</p>
+</dd>
+<dt><strong>abi_tag</strong><span class="classifier">str, optional</span></dt><dd><p>The Python ABI tag, see PEP #425</p>
+</dd>
+<dt><strong>platform_tag</strong><span class="classifier">str, optional</span></dt><dd><p>The platform tag, see PEP #425</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>noarch_python</strong><span class="classifier">bool</span></dt><dd><p>Whether the package is a ‘noarch: python’ conda package.</p>
+</dd>
+<dt><strong>basedir</strong><span class="classifier">str or None,</span></dt><dd><p>Location on filesystem where real files exist.</p>
+</dd>
+<dt><strong>derived_from</strong><span class="classifier">str</span></dt><dd><p>This is a flag representing where this wheel came from. Valid values
+are:</p>
+<ul class="simple">
+<li><p>“none”: wheel object created from nothing</p></li>
+<li><p>“artifact”: wheel object created from conda artifact</p></li>
+<li><p>“wheel”: wheel object created from a wheel file.</p></li>
+</ul>
+</dd>
+<dt><strong>component_wheels</strong><span class="classifier">dict or None</span></dt><dd><p>Mapping of component wheels when merging many wheels into one.
+This is only non-None valued during the actual merge operation.</p>
+</dd>
+<dt><strong>skipped_deps</strong><span class="classifier">set</span></dt><dd><p>A set of dependency names we know that are excluded from the
+requirements.</p>
+</dd>
+<dt><strong>scripts</strong><span class="classifier">sequence of (filesystem-str, archive-str) tuples or None</span></dt><dd><p>This maps filesystem paths to the scripts/filename.ext in the archive.
+If an entry is a filesystem path, it will be converted to the correct
+tuple. The filesystem path will be relative to the basedir.</p>
+</dd>
+<dt><strong>includes</strong><span class="classifier">sequence of (filesystem-str, archive-str) tuples or None</span></dt><dd><p>This maps filesystem paths to the includes/filename.ext in the archive.
+If an entry is a filesystem path, it will be converted to the correct
+tuple. The filesystem path will be relative to the basedir.</p>
+</dd>
+<dt><strong>files</strong><span class="classifier">sequence of (filesystem-str, archive-str) tuples or None</span></dt><dd><p>This maps filesystem paths to the path/to/filename.ext in the archive.
+If an entry is a filesystem path, it will be converted to the correct
+tuple. The filesystem path will be relative to the basedir.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.clean">
+<code class="sig-name descname">clean</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.clean" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.from_file">
+<em class="property">classmethod </em><code class="sig-name descname">from_file</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a wheel object from an existing wheel.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.rewrite_python_shebang">
+<code class="sig-name descname">rewrite_python_shebang</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.rewrite_python_shebang" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.rewrite_rpaths">
+<code class="sig-name descname">rewrite_rpaths</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.rewrite_rpaths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rewrite shared library relative (run) paths, as needed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.rewrite_scripts_linking">
+<code class="sig-name descname">rewrite_scripts_linking</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.rewrite_scripts_linking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write wrapper scripts so that dynamic linkings in the
+site-packages/lib/ directory will be picked up. These are
+platform specific.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.rewrite_scripts_linking_unix">
+<code class="sig-name descname">rewrite_scripts_linking_unix</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.rewrite_scripts_linking_unix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.rewrite_scripts_linking_win">
+<code class="sig-name descname">rewrite_scripts_linking_win</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.rewrite_scripts_linking_win" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write">
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">include_requirements=True</em>, <em class="sig-param">skip_python=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes out the wheel file to disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>include_requirements</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether or not to include the requirements as part of the wheel metadata.
+Normally, this should be True.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_entry_points">
+<code class="sig-name descname">write_entry_points</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_entry_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_from_filesystem">
+<code class="sig-name descname">write_from_filesystem</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_from_filesystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_license_file">
+<code class="sig-name descname">write_license_file</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_license_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes out license</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_license_file_from_artifact">
+<code class="sig-name descname">write_license_file_from_artifact</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_license_file_from_artifact" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_license_file_from_wheel">
+<code class="sig-name descname">write_license_file_from_wheel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">include_requirements=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_license_file_from_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes license from a wheel</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_metadata">
+<code class="sig-name descname">write_metadata</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes out metadata</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_metadata_from_artifact">
+<code class="sig-name descname">write_metadata_from_artifact</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">include_requirements=True</em>, <em class="sig-param">skip_python=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_metadata_from_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes metadata from a conda artifact</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_metadata_from_wheel">
+<code class="sig-name descname">write_metadata_from_wheel</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_metadata_from_wheel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes metadata from a wheel</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_record">
+<code class="sig-name descname">write_record</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_record" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_top_level">
+<code class="sig-name descname">write_top_level</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_top_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_unix_script_proxy">
+<code class="sig-name descname">write_unix_script_proxy</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">absname</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_unix_script_proxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_wheel_metadata">
+<code class="sig-name descname">write_wheel_metadata</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_wheel_metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.write_win_script_proxy">
+<code class="sig-name descname">write_win_script_proxy</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">proxyname</em>, <em class="sig-param">basename</em>, <em class="sig-param">path_to_exe='Scripts'</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.Wheel.write_win_script_proxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.compatibility_tag">
+<em class="property">property </em><code class="sig-name descname">compatibility_tag</code><a class="headerlink" href="#conda_press.wheel.Wheel.compatibility_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.filename">
+<em class="property">property </em><code class="sig-name descname">filename</code><a class="headerlink" href="#conda_press.wheel.Wheel.filename" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.files">
+<em class="property">property </em><code class="sig-name descname">files</code><a class="headerlink" href="#conda_press.wheel.Wheel.files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.includes">
+<em class="property">property </em><code class="sig-name descname">includes</code><a class="headerlink" href="#conda_press.wheel.Wheel.includes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conda_press.wheel.Wheel.scripts">
+<em class="property">property </em><code class="sig-name descname">scripts</code><a class="headerlink" href="#conda_press.wheel.Wheel.scripts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.dist_escape">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">dist_escape</code><span class="sig-paren">(</span><em class="sig-param">distribution</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.dist_escape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely escapes a distribution string</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.distinfo_from_filename">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">distinfo_from_filename</code><span class="sig-paren">(</span><em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.distinfo_from_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a dict of wheel information from a filename</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.fatten_from_seen">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">fatten_from_seen</code><span class="sig-paren">(</span><em class="sig-param">seen</em>, <em class="sig-param">output=None</em>, <em class="sig-param">skipped_deps=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.fatten_from_seen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges wheels from a dict of seen wheels.
+Returns a dict mapping the name of the created file to the Wheel.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.merge">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param">files</em>, <em class="sig-param">output=None</em>, <em class="sig-param">skipped_deps=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>merges wheels together</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.normalize_version">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">normalize_version</code><span class="sig-paren">(</span><em class="sig-param">version</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.normalize_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalizes a version string from conda to PEP-440 style</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.parse_entry_points">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">parse_entry_points</code><span class="sig-paren">(</span><em class="sig-param">wheel_or_file</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.parse_entry_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of entry points from a Wheel or an entry_points.txt filename</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.parse_files">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">parse_files</code><span class="sig-paren">(</span><em class="sig-param">wheel_or_file</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.parse_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of files from a Wheel or a RECORD filename</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.parse_records">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">parse_records</code><span class="sig-paren">(</span><em class="sig-param">wheel_or_file</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.parse_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of record tuples from a Wheel or a RECORD filename</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.record_hash">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">record_hash</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.record_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.urlsafe_b64decode_nopad">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">urlsafe_b64decode_nopad</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.urlsafe_b64decode_nopad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conda_press.wheel.urlsafe_b64encode_nopad">
+<code class="sig-prename descclassname">conda_press.wheel.</code><code class="sig-name descname">urlsafe_b64encode_nopad</code><span class="sig-paren">(</span><em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#conda_press.wheel.urlsafe_b64encode_nopad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/press.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="condatools.html"
+                          title="Previous page">&larr; Conda Tools (<code class="docutils literal notranslate"><span class="pre">conda_press.condatools</span></code>)</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="main.html"
+                          title="Next page">&rarr; Main Entry Points (<code class="docutils literal notranslate"><span class="pre">conda_press.main</span></code>)</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/wheel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="main.html" title="Main Entry Points (conda_press.main)"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="condatools.html" title="Conda Tools (conda_press.condatools)"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Conda-Press API</a> &#187;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Anthony Scopatz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

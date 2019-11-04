@@ -1,0 +1,242 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>conda-press Change Log &#8212; conda-press 0.0.6 documentation</title>
+    <link rel="stylesheet" href="_static/numpy_friendly.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.base.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="shortcut icon" href="_static/press.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Developer’s Guide" href="devguide.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="devguide.html" title="Developer’s Guide"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="conda-press-change-log">
+<h1>conda-press Change Log<a class="headerlink" href="#conda-press-change-log" title="Permalink to this headline">¶</a></h1>
+<p>&lt;!– current developments –&gt;</p>
+<p>## v0.0.6
+<strong>Fixed:</strong></p>
+<ul class="simple">
+<li><p>When <cite>conda-press</cite> was executed with some empty values for <cite>–add-deps</cite> and <cite>–exclude-deps</cite> it raises and error</p></li>
+</ul>
+<p>of None type is not iterable.
+* Fixed issue with running <cite>–merge</cite> on a list of wheels.</p>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><p>Marcelo Duarte Trevisani</p></li>
+<li><p>Brian Kelley</p></li>
+</ul>
+<p>## v0.0.5
+<strong>Added:</strong></p>
+<ul class="simple">
+<li><p>Added option <cite>–config</cite> which accepts a path to a yaml file with the configuration to run <cite>conda-press</cite>.</p></li>
+<li><p>The <cite>YAML</cite> file passed using the option <cite>–config</cite> also accepts the</p></li>
+</ul>
+<p>configuration to be inside of the key <cite>conda_press</cite>.</p>
+<p><strong>Changed:</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Add dataclass <cite>Config</cite> following the <cite>Introduce Parameter Object</cite> design pattern.</dt><dd><p><cite>Config</cite> is responsible to hold the <cite>conda-press</cite> configuration.
+Refactored internal classes/functions to use the new approach.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><p>Marcelo Duarte Trevisani</p></li>
+</ul>
+<p>## v0.0.4
+<strong>Added:</strong></p>
+<ul class="simple">
+<li><p><cite>wheels.fatten_from_seen()</cite> now has a <cite>skipped_deps</cite> keyword argument</p></li>
+<li><p>Add new option <cite>–only-pypi</cite> which will remove any dependency which is not available on PyPi.</p></li>
+</ul>
+<p><strong>Changed:</strong></p>
+<ul class="simple">
+<li><p>Fattened wheels now respect <cite>–exclude-deps</cite></p></li>
+</ul>
+<p><strong>Fixed:</strong></p>
+<ul class="simple">
+<li><p>Fix file types which might be uncompressed when using <cite>from_tarball</cite> method.</p></li>
+<li><p>Removed <cite>WHEEL</cite>, <cite>METADATA</cite>, and <cite>RECORD</cite> files from fat wheels.</p></li>
+</ul>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><p>Marcelo Duarte Trevisani</p></li>
+</ul>
+<p>## v0.0.3
+<strong>Added:</strong></p>
+<ul class="simple">
+<li><p>Add plugin <code class="docutils literal notranslate"><span class="pre">pytest-azurepipelines</span></code> to show test reports on Azure Pipelines</p></li>
+<li><p>Add option <cite>–add-deps</cite> to be able to add new dependencies to the wheel.</p></li>
+<li><p>Add option <cite>–exclude-deps</cite>. With this option the user will be able to exclude dependencies from the artifacts.</p></li>
+</ul>
+<p><strong>Fixed:</strong></p>
+<ul class="simple">
+<li><p>Removed unused imports</p></li>
+</ul>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><p>Marcelo Duarte Trevisani</p></li>
+</ul>
+<p>## v0.0.2
+<strong>Added:</strong></p>
+<ul class="simple">
+<li><p>Initial support for RPATH fix-up on macOS</p></li>
+</ul>
+<p><strong>Fixed:</strong></p>
+<ul class="simple">
+<li><p>Requirements listed in the wheel metadata are now removed approriately
+if Python was skipped or if the wheel is a merger of other wheels.</p></li>
+<li><p>Don’t list python as a runtime requirement when building with ‘–skip-python’</p></li>
+<li><p>Apply RPATH fixups to ‘.so’ libraries on macOS, because that is CPython extension default</p></li>
+<li><p>Fixed issue with noarch Python version reading.</p></li>
+</ul>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><p>Isaiah Norton</p></li>
+</ul>
+<p>## v0.0.1
+<strong>Added:</strong></p>
+<ul class="simple">
+<li><p>Initial version of conda-press!</p></li>
+</ul>
+<p><strong>Authors:</strong></p>
+<ul class="simple">
+<li><p>Anthony Scopatz</p></li>
+<li><ol class="upperalpha simple" start="16">
+<li><ol class="upperalpha simple" start="12">
+<li><p>Lim</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Julien Schueller</p></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/press.png" alt="Logo"/>
+        </a></p>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="devguide.html"
+                          title="Previous page">&larr; Developer’s Guide</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/changelog.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="devguide.html" title="Developer’s Guide"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Anthony Scopatz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

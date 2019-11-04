@@ -1,0 +1,211 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>PyData NYC 2019 &#8212; conda-press 0.0.6 documentation</title>
+    <link rel="stylesheet" href="../_static/numpy_friendly.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../_static/cloud.base.js"></script>
+    <script type="text/javascript" src="../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../_static/press.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conda-Press API" href="../api/index.html" />
+    <link rel="prev" title="Dependencies" href="../dependencies.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../api/index.html" title="Conda-Press API"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../dependencies.html" title="Dependencies"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pydata-nyc-2019">
+<h1>PyData NYC 2019<a class="headerlink" href="#pydata-nyc-2019" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conda-press-or-reinventing-the-wheel">
+<h2>Conda-press, or Reinventing the Wheel<a class="headerlink" href="#conda-press-or-reinventing-the-wheel" title="Permalink to this headline">¶</a></h2>
+<p>Conda-press (https://github.com/regro/conda-press) is a new tool that
+lets you transform conda packages (artifacts) into Python wheels. This talk will:</p>
+<ul class="simple">
+<li><p>discuss why in the world you would want to do such a terrible thing,</p></li>
+<li><p>demonstrate that you can do such a terrible thing (live!),</p></li>
+<li><p>dive-in to how such as terrible thing is done, and</p></li>
+<li><p>define some safety precautions when doing such a terrible thing on your own.</p></li>
+</ul>
+<div class="section" id="discuss">
+<h3>Discuss<a class="headerlink" href="#discuss" title="Permalink to this headline">¶</a></h3>
+<p>Building software is hard. Luckily, conda-forge is a huge community (1.5k+)
+dedicated to building software, focused on the PyData stack. Unfortunately,
+some users still want to be able to <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> packages. Double unfortunately,
+creating binary wheels across many different platforms is often extremely difficult
+for any package with a C-extension.</p>
+<p>The central idea behind conda-press is that if there is already a conda-forge
+package, all of the hard work has already been done! To provide wheels, we
+should just be able to massage those artifacts into a more circular shape.</p>
+</div>
+<div class="section" id="demonstrate">
+<h3>Demonstrate<a class="headerlink" href="#demonstrate" title="Permalink to this headline">¶</a></h3>
+<p>Because we conda-press is just shuffling bits around, managing metadata,
+and not compiling anything new, it is quite fast! This talk will demo
+creating and installing wheels for a few different packages. For example,
+packages like numpy, scipy, or uvloop are all good candidates. This talk
+may also demonstrate generating wheels for more esoteric packages that are
+not related to Python, such as cmake, R, or even Python itself!</p>
+</div>
+<div class="section" id="dive-in">
+<h3>Dive-in<a class="headerlink" href="#dive-in" title="Permalink to this headline">¶</a></h3>
+<p>This talk will discuss the underlying layout of the wheels that are
+created and how these wheels are built to work well with other wheels
+created by conda-press.</p>
+<p>This talk will also explain the underlying architecture of conda-press, and how
+typical workflows are implemented. Conda-press relies on a number of external,
+platform-specific command line utilities. Conda-press is largely written in
+the xonsh language to enable this.</p>
+</div>
+<div class="section" id="defense">
+<h3>Defense<a class="headerlink" href="#defense" title="Permalink to this headline">¶</a></h3>
+<p>This talk will also offer guidance against common pitfalls when creating
+wheels with conda-press. This includes the distinction between fat and skinny
+wheels, namespace differences between PyPI and conda-forge, and issues with
+prefix substitutions.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/press.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">PyData NYC 2019</a><ul>
+<li><a class="reference internal" href="#conda-press-or-reinventing-the-wheel">Conda-press, or Reinventing the Wheel</a><ul>
+<li><a class="reference internal" href="#discuss">Discuss</a></li>
+<li><a class="reference internal" href="#demonstrate">Demonstrate</a></li>
+<li><a class="reference internal" href="#dive-in">Dive-in</a></li>
+<li><a class="reference internal" href="#defense">Defense</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="../dependencies.html"
+                          title="Previous page">&larr; Dependencies</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="../api/index.html"
+                          title="Next page">&rarr; Conda-Press API</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/confs/pydata-nyc2019.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../api/index.html" title="Conda-Press API"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="../dependencies.html" title="Dependencies"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">conda-press 0.0.6 documentation</a> &#187;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Anthony Scopatz.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
